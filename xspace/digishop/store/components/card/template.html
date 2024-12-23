@@ -1,0 +1,35 @@
+<div id="normalCardSlide">
+    {% include 'store/partials/normalcardslide.html' %}
+</div>
+<div id="item-list-container" class="hidden">
+    {% include 'store/partials/item_list_content.html' %}
+</div>
+
+<div class="flex items-center justify-center">
+    <button href="#" class="bg-red-400 font-poppins text-white p-2.5 rounded-sm" id="viewAllBut">View All Products</button>
+</div>
+
+<div id="pagination-container" class="flex items-center justify-center hidden">
+    <div>
+        <button class="bg-red-400 font-poppins text-white p-2.5 rounded-sm mr-2" id="showLessBut">Show Less</button>
+    </div>
+        <!-- {% include 'store/partials/pagination_controls.html' %} -->
+</div>
+
+<script>
+    (function(){
+    document.getElementById('viewAllBut').onclick = function(){
+        console.log('Stable');
+        document.getElementById('viewAllBut').classList.add('hidden');
+        document.getElementById('normalCardSlide').classList.add('hidden');
+        document.getElementById('item-list-container').classList.remove('hidden');
+        document.getElementById('pagination-container').classList.remove('hidden');
+    };
+    document.getElementById('showLessBut').onclick = function(){
+        document.getElementById('viewAllBut').classList.remove('hidden');
+        document.getElementById('normalCardSlide').classList.remove('hidden');
+        document.getElementById('item-list-container').classList.add('hidden');
+        document.getElementById('pagination-container').classList.add('hidden');
+    };
+}());
+</script>

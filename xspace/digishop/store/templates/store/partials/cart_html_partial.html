@@ -1,0 +1,110 @@
+
+<div class="px-0 md:px-[70px] lg:px-[96px] xl:mx-auto max-w-[1024px]">
+
+    <div class="py-10 mx-10 md:mx-0">
+        <a class="cursor-pointer font-thin" href="#">Home/Cart</a>
+    </div>
+
+   <div class="flex justify-between h-[49px] my-2 items-center shadow-sm mx-10 md:mx-0">
+        <div class="flex-1 flex justify-start">Product</div>
+        <div class="flex-1 flex justify-center">Price</div>
+        <div class="flex-1 flex justify-center">Quantity</div>
+        <div class="flex-1 flex justify-end">Subtotal</div>
+   </div>
+
+   {% for product in products %}
+   <div class="flex justify-between my-2 items-center shadow-sm mx-10 md:mx-0">
+        <div class="flex-1 block md:flex md:justify-start md:items-center">
+            <div class="w-12 h-12 flex items-center"><img src="{{product.imagefourURL}}"/></div>
+            <div class="hidden md:flex md:items-center ml-2">{{product.name}}</div>
+        </div>
+        <div class="flex-1 flex justify-center">{{product.price|floatformat:2}}</div>
+        <div class="flex-1 flex justify-center items-center">
+            <div class="border border-slate-500 w-[51.2px] h-[31.29px] flex justify-around items-center rounded-sm">
+                <div>{{ product.quantity }}</div>
+                <div>
+                    <div 
+                        href="#"
+                        class="text-[7px] update-cart cursor-pointer" 
+                        data-product="{{item.product.id}}" 
+                        data-hx-post="{% url 'add_to_cart' item.product.id %}"
+                        data-hx-target="#cart-html-update"
+                        data-hx-swap="innerHTML"
+                        data-hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+                        data-action="add"
+                        hx-vals='{"action": "add"}'
+                        >
+                            <i class="fa-solid fa-chevron-up"></i>
+                    </div>
+                    <div 
+                        href="#"
+                        class="text-[7px] update-cart cursor-pointer" 
+                        data-product="{{item.product.id}}" 
+                        data-hx-post="{% url 'add_to_cart' item.product.id %}"
+                        data-hx-target="#cart-html-update"
+                        data-hx-swap="innerHTML"
+                        data-hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+                        data-action="remove"
+                        hx-vals='{"action": "remove"}'
+                        >
+                            <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flex-1 flex justify-end">${{product.get_total}}</div>
+    </div>
+    {% endfor %}
+   
+   
+   <div class="flex items-center justify-between mt-8 mx-10 md:mx-0">
+        <div class="flex-1">
+            <a href="{% url 'home' %}" class="rounded-sm border border-gray-300 hover:bg-slate-400 hover:text-white p-2">Return to Shop</a>
+        </div>
+        <div class="flex-1 flex justify-end">
+            <button class="p-2 rounded-sm border border-gray-300 hover:bg-slate-400 hover:text-white flex justify-center items-center">Update Cart</button>
+        </div>
+   </div>
+
+   <div class="block lg:flex justify-between mt-[50px] mb-[60px]">
+        <div class="sm:flex sm:justify-between lg:flex-1 h-[120px] lg:h-[229px] md:pr-[2] mx-10 md:mx-0">
+            <form class="flex justify-between md:justify-start space-x-3">
+                <input type="text" class="w-[213px] h-[40px] items-center border border-slate-600 rounded-sm" placeholder="Coupon Code">
+                <button type="submit" class="bg-red-500 rounded-sm w-[150px] h-[40px] text-white">Apply Coupon</button>
+            </form>
+        </div>
+
+        <!-- Cart Total start -->
+        <div class="flex-1 h-[260px] flex justify-center lg:justify-end">
+            <div class="w-[334px] h-240px border border-slate-700 py-2 px-4 rounded-md">
+                <div class="font-semibold text-lg mb-3">Cart Totoal</div>
+                <div class="flex justify-between">
+                    <div class="flex-1">Total Value:</div>
+                    <div class="flex-1 flex justify-end">$ {{order.get_cart_total}}</div>
+                </div>
+                <hr class="border-t-1 border-slate-400 my-2">
+                <div class="flex justify-between">
+                    <div class="flex-1">Total Item:</div>
+                    <div class="flex-1 flex justify-end">
+                        {{order.get_cart_items}}
+                    </div>
+                </div>
+                <hr class="border-t-1 border-slate-400 my-2">
+                <div class="flex justify-between">
+                    <div class="flex-1">Shipping:</div>
+                    <div class="flex-1 flex justify-end">Free</div>
+                </div>
+                <hr class="border-t-1 border-slate-400 my-2">
+                <div class="flex justify-between mb-3">
+                    <div class="flex-1">Total:</div>
+                    <div class="flex-1 flex justify-end">$ {{order.get_cart_total}}</div>
+                </div>
+                <div class="flex justify-center">
+                    <a type="submit" class="bg-red-500 rounded-sm w-[184px] h-[40px] text-white flex justify-center items-center" href="{% url 'checkout' %}">Process to Check Out</a>
+                </div>
+            </div>
+        </div>
+        <!-- Cart Total end -->
+    </div>
+
+</div>

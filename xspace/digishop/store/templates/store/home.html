@@ -1,0 +1,257 @@
+{% extends 'store/main.html' %}
+{% load component_tags %}
+{% load static %}
+{% block content %}
+
+
+    <div class="px-0 md:px-[70px] lg:px-[96px] flex max-w-[1024px] mx-auto" id="searched-display">
+        <div class="border-r border-gray-500 hidden lg:flex">
+            <div class="w-[154.67px] h-[253.02px] mt-[28px] items-center justify-center">
+                    <ul class="space-y-[6px] pb-0 text-[16px] font-poppins">
+                      <li><a href="#" class="hover:text-gray-400">Woman's Fashion</a></li>
+                      <li><a href="#" class="hover:text-gray-400">Men's Fashion</a></li>
+                      <li><a href="#" class="hover:text-gray-400">Electronics</a></li>
+                      <li><a href="#" class="hover:text-gray-400">Home & Lifestyle</a></li>
+                      <li><a href="#" class="hover:text-gray-400">Medicine</a></li>
+                      <li><a href="#" class="hover:text-gray-400">Sports & Outdoor</a></li>
+                      <li><a href="#" class="hover:text-gray-400">Baby's & Toys</a></li>
+                      <li><a href="#" class="hover:text-gray-400">Groceries & Pets</a></li>
+                      <li><a href="#" class="hover:text-gray-400">Health & Beauty</a></li>
+                    </ul>
+            </div>
+        </div>
+        <div class="flex-1 flex justify-center lg:pl-[31px] pt-[3%] items-end">
+                <img src="{% static 'images/slide.png' %}" class="w-full h-auto"/>
+        </div>
+    </div>
+
+     <!-- Row 1 start-->
+     {% component "card" title="Title1" %}
+     {% endcomponent %}
+     <!-- Row 1 End-->
+
+    
+    <!-- Row 2-->
+    <div class="container py-4 mb-5 px-0 md:px-[70px] lg:px-[96px] text-center max-w-[1024px] mx-auto">
+        <div class="h-auto mb-4">
+            <div class="flex flex-col md:flex-row">
+                <div class="bg-red-400 h-[28.44px] w-[14.22px] rounded-[4px]"></div>
+                <div class="h-[28.44px] w-[20px] rounded-[4px] font-poppins text-red-400 text-[11.3px] flex items-center ml-[16px]">Categories</div>
+            </div>
+            <div class="h-auto flex justify-between">
+                <div class="flex items-center h-full">
+                    <div class="flex items-center text-[25.6px] font-semibold">Browse By Category</div>
+                </div>
+                <div class="rounded-[4px] font-poppins text-base hidden lg:flex items-center justify-end h-full">
+                    <div class="flex space-x-4 ml-2">
+                        <div class="flex items-center justify-center space-x-4">
+                            <div class="bg-gray-200 rounded-full p-2 hover:bg-gray-300">
+                               
+                            </div>
+                            <div class="bg-gray-200 rounded-full p-2 hover:bg-gray-300">
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Cards Start -->
+        <div class="h-auto flex gap-7 md:gap-2 justify-between overflow-scroll">
+    
+            <!-- Icon one -->
+            <div class="min-w-[120px] h-[103px] bg-slate-200 flex items-center justify-center">
+                <div>
+                    <div>Icon</div>
+                    <div>Label</div>
+                </div>
+            </div>
+            <!-- Icon one -->
+    
+            <!-- Icon Two -->
+            <div class="min-w-[120px] h-[103px] bg-slate-200 flex items-center justify-center">
+                <div>
+                    <div>Icon</div>
+                    <div>Label</div>
+                </div>
+            </div>
+            <!-- Icon Two -->
+    
+             <!-- Icon Two -->
+             <div class="min-w-[120px] h-[103px] bg-slate-200 flex items-center justify-center">
+                <div>
+                    <div>Icon</div>
+                    <div>Label</div>
+                </div>
+            </div>
+            <!-- Icon Two -->
+    
+             <!-- Icon Two -->
+             <div class="min-w-[120px] h-[103px] bg-slate-200 flex items-center justify-center">
+                <div>
+                    <div>Icon</div>
+                    <div>Label</div>
+                </div>
+            </div>
+            <!-- Icon Two -->
+    
+             <!-- Icon Two -->
+             <div class="min-w-[120px] h-[103px] bg-slate-200 flex items-center justify-center">
+                <div>
+                    <div>Icon</div>
+                    <div>Label</div>
+                </div>
+            </div>
+            <!-- Icon Two -->
+    
+             <!-- Icon Two -->
+             <div class="min-w-[120px] h-[103px] bg-slate-200 flex items-center justify-center">
+                <div>
+                    <div>Icon</div>
+                    <div>Label</div>
+                </div>
+            </div>
+            <!-- Icon Two -->
+           
+        </div>
+        <!-- Cards end -->
+    
+        <!-- <div class="mt-[55px] h-11 flex items-center justify-center">
+            <button class="bg-red-400 w-[336px] md:w-[166.27px] h-[40.76px] rounded-sm text-white">View All Products</button>
+        </div> -->
+    </div>
+    <!-- Row 2 -->
+    
+   
+    
+    
+    <!-- Row four -->
+    <div class="container px-0 md:px-[70px] lg:px-[96px] flex max-w-[1024px] mx-auto">
+        <div class="flex-1 flex justify-center pt-[3%] items-end">
+                <img src="{% static 'images/w-2.png' %}" class="w-full h-auto"/>
+        </div>
+    </div>
+    <!-- Row four -->
+    
+    
+    
+    
+    <!-- Row 6 start -->
+    <div class="container py-4 mb-1 px-0 md:px-[70px] lg:px-[96px] text-center max-w-[1024px] mx-auto mt-[76px]">
+        <div class="h-auto mb-4">
+            <div class="flex flex-col md:flex-row">
+                <div class="bg-red-400 h-[28.44px] w-[14.22px] rounded-[4px]"></div>
+                <div class="h-[28.44px] w-[20px] rounded-[4px] font-poppins text-red-400 text-[11.3px] flex items-center ml-[16px]">Featured</div>
+            </div>
+            <div class="h-auto flex justify-between">
+                <div class="flex items-center h-full">
+                    <div class="flex items-center text-[25.6px] font-semibold">New Arrival</div>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Cards Start -->
+        <div class="block lg:flex gap-2">
+            <div class="min-w-[405.33px] lg:w-1/2 h-[426.67px] mb-2" style="background-image: url({% static 'images/bag-one.png' %});background-size: cover;background-position: center;">
+                <h2 class="text-white text-lg">Hello, World!</h2>
+            </div>
+            <div class="min-w-[405.33px] lg:w-1/2 h-[426.67px]">
+                <div class="h-1/2 mb-2" style="background-image: url({% static 'images/bag-two.png' %});background-size: cover;background-position: center;">
+                    <h2 class="text-white text-lg">Bag</h2>
+                </div>
+                <div class="h-[205px] flex gap-2">
+                    <div class="w-1/2" style="background-image: url({% static 'images/perfume.png' %});background-size: cover;background-position: center;">
+                        <h2 class="text-white text-lg">Perfume</h2>
+                    </div>
+                    <div class="flex-1" style="background-image: url({% static 'images/dress.png' %});background-size: cover;background-position: center;">
+                        <h2 class="text-white text-lg">Dress</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Cards end -->
+    </div>
+    <!-- Row 6 end -->
+    
+    <!-- Row 7 start -->
+    <div class="py-4 px-0 md:px-[70px] lg:px-[96px] max-w-[1024px] mx-auto my-[86px]">
+       <div class="w-full block md:flex md:items-center md:justify-between">
+
+        <!-- Card 1 -->
+        <div class="w-[177px] h-[114px] flex items-center justify-center mx-auto md:mx-0 mb-2">
+            <div>
+                <div class="w-[56.89px] h-[56.89px] rounded-[56.89px] mx-auto">
+                    <svg width="58" height="57" viewBox="0 0 58 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path opacity="0.3" d="M57.0111 28.4889C57.0111 44.1983 44.2761 56.9333 28.5666 56.9333C12.8572 56.9333 0.122192 44.1983 0.122192 28.4889C0.122192 12.7794 12.8572 0.0444336 28.5666 0.0444336C44.2761 0.0444336 57.0111 12.7794 57.0111 28.4889ZM7.87838 28.4889C7.87838 39.9147 17.1408 49.1771 28.5666 49.1771C39.9924 49.1771 49.2549 39.9147 49.2549 28.4889C49.2549 17.0631 39.9924 7.80062 28.5666 7.80062C17.1408 7.80062 7.87838 17.0631 7.87838 28.4889Z" fill="#2F2E30"/>
+                        <circle cx="28.5666" cy="28.4889" r="20.6222" fill="black"/>
+                        <g clip-path="url(#clip0_365_7074)">
+                        <path d="M22.6407 36.7852C23.9498 36.7852 25.0111 35.7239 25.0111 34.4148C25.0111 33.1057 23.9498 32.0444 22.6407 32.0444C21.3316 32.0444 20.2704 33.1057 20.2704 34.4148C20.2704 35.7239 21.3316 36.7852 22.6407 36.7852Z" stroke="#FAFAFA" stroke-width="1.42222" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M34.4926 36.7852C35.8017 36.7852 36.8629 35.7239 36.8629 34.4148C36.8629 33.1057 35.8017 32.0444 34.4926 32.0444C33.1834 32.0444 32.1222 33.1057 32.1222 34.4148C32.1222 35.7239 33.1834 36.7852 34.4926 36.7852Z" stroke="#FAFAFA" stroke-width="1.42222" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M20.2703 34.4149H19.3222C18.5367 34.4149 17.8999 33.7782 17.8999 32.9927V29.6742M16.7148 20.1927H28.3296C29.115 20.1927 29.7518 20.8294 29.7518 21.6149V34.4149M25.011 34.4149H32.1222M36.8629 34.4149H37.8111C38.5965 34.4149 39.2333 33.7782 39.2333 32.9927V27.3038M39.2333 27.3038H29.7518M39.2333 27.3038L36.092 22.0684C35.835 21.64 35.372 21.3779 34.8725 21.3779H29.7518" stroke="#FAFAFA" stroke-width="1.42222" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M20.0333 34.1778H19.0852C18.2997 34.1778 17.6629 33.541 17.6629 32.7556V29.437M16.4778 19.9556H28.0926C28.878 19.9556 29.5148 20.5923 29.5148 21.3778V34.1778M25.0111 34.1778H31.8852M37.1 34.1778H37.5741C38.3595 34.1778 38.9963 33.541 38.9963 32.7556V27.0667M38.9963 27.0667H29.5148M38.9963 27.0667L35.855 21.8312C35.598 21.4029 35.135 21.1408 34.6355 21.1408H29.5148" stroke="#FAFAFA" stroke-width="1.42222" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M17.9 22.6707H22.6407" stroke="#FAFAFA" stroke-width="1.42222" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M15.6373 25.2565H20.3781" stroke="#FAFAFA" stroke-width="1.42222" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M17.9 27.8424H22.6407" stroke="#FAFAFA" stroke-width="1.42222" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_365_7074">
+                        <rect width="28.4444" height="28.4444" fill="white" transform="translate(14.3444 14.2667)"/>
+                        </clipPath>
+                        </defs>
+                    </svg>                        
+                </div> 
+                <h1 class="text-center font-bold w-full mt-2">Free and Fast Delivery</h1>
+                <h3 class="text-center">We Friendly Deliver!</h3>
+            </div>
+        </div>
+        <!-- Card 1 -->
+        <!-- Card 2 -->
+        <div class="w-[177px] h-[114px] flex items-center justify-center mx-auto md:mx-0 mb-2">
+            <div>
+                <div class="w-[56.89px] h-[56.89px] rounded-[56.89px] mx-auto">
+                    <svg width="58" height="57" viewBox="0 0 58 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path opacity="0.3" d="M57.2444 28.4889C57.2444 44.1983 44.5094 56.9333 28.7999 56.9333C13.0905 56.9333 0.355499 44.1983 0.355499 28.4889C0.355499 12.7794 13.0905 0.0444336 28.7999 0.0444336C44.5094 0.0444336 57.2444 12.7794 57.2444 28.4889ZM8.11169 28.4889C8.11169 39.9147 17.3741 49.1771 28.7999 49.1771C40.2258 49.1771 49.4882 39.9147 49.4882 28.4889C49.4882 17.0631 40.2258 7.80062 28.7999 7.80062C17.3741 7.80062 8.11169 17.0631 8.11169 28.4889Z" fill="#2F2E30"/>
+                        <circle cx="28.7999" cy="28.4889" r="20.6222" fill="black"/>
+                        <g clip-path="url(#clip0_365_7091)">
+                        <path d="M24.0592 32.0444C24.0592 30.7353 22.998 29.6741 21.6888 29.6741C20.3797 29.6741 19.3185 30.7353 19.3185 32.0444V34.4148C19.3185 35.7239 20.3797 36.7852 21.6888 36.7852C22.998 36.7852 24.0592 35.7239 24.0592 34.4148V32.0444Z" stroke="white" stroke-width="1.42222" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M38.2814 32.0444C38.2814 30.7353 37.2202 29.6741 35.9111 29.6741C34.6019 29.6741 33.5407 30.7353 33.5407 32.0444V34.4148C33.5407 35.7239 34.6019 36.7852 35.9111 36.7852C37.2202 36.7852 38.2814 35.7239 38.2814 34.4148V32.0444Z" stroke="white" stroke-width="1.42222" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M19.3185 32.0444V28.4889C19.3185 25.9742 20.3174 23.5626 22.0955 21.7844C23.8737 20.0063 26.2853 19.0074 28.7999 19.0074C31.3146 19.0074 33.7262 20.0063 35.5044 21.7844C37.2825 23.5626 38.2814 25.9742 38.2814 28.4889V32.0444" stroke="white" stroke-width="1.42222" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M35.9111 36.7852C35.9111 37.7282 35.1618 38.6326 33.8283 39.2994C32.4947 39.9662 30.6859 40.3408 28.7999 40.3408" stroke="white" stroke-width="1.42222" stroke-linecap="round" stroke-linejoin="round"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0_365_7091">
+                        <rect width="28.4444" height="28.4444" fill="white" transform="translate(14.5777 14.2667)"/>
+                        </clipPath>
+                        </defs>
+                    </svg>
+                </div> 
+                <h1 class="text-center font-bold mt-2">24/7 Customer Service</h1>
+                <h3 class="text-center">We Friendly Deliver!</h3>
+            </div>
+        </div> 
+        <!-- Card 2 -->
+        <!-- Card 3 -->
+        <div class="w-[177px] h-[114px] flex items-center justify-center mx-auto md:mx-0 mb-2">
+            <div>
+                <div class="w-[56.89px] h-[56.89px] rounded-[56.89px] mx-auto">
+                    <svg width="57" height="57" viewBox="0 0 57 57" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path opacity="0.3" d="M56.9778 28.4889C56.9778 44.1983 44.2428 56.9333 28.5333 56.9333C12.8239 56.9333 0.0888824 44.1983 0.0888824 28.4889C0.0888824 12.7794 12.8239 0.0444336 28.5333 0.0444336C44.2428 0.0444336 56.9778 12.7794 56.9778 28.4889ZM7.84507 28.4889C7.84507 39.9147 17.1075 49.1771 28.5333 49.1771C39.9591 49.1771 49.2216 39.9147 49.2216 28.4889C49.2216 17.0631 39.9591 7.80062 28.5333 7.80062C17.1075 7.80062 7.84507 17.0631 7.84507 28.4889Z" fill="#2F2E30"/>
+                        <circle cx="28.5333" cy="28.4889" r="20.6222" fill="black"/>
+                        <path d="M20.0705 36.0262L20.0703 36.0261C19.4497 35.5633 18.8804 34.8325 18.4659 34.0065C18.0515 33.1804 17.8074 32.2899 17.8074 31.523V22.7052C17.8074 21.0275 19.0553 19.2173 20.6337 18.6295L20.6344 18.6292L26.5482 16.413C26.5482 16.413 26.5483 16.413 26.5483 16.413C27.0841 16.2128 27.7949 16.1067 28.5215 16.1067C29.2481 16.1067 29.9588 16.2128 30.4946 16.413C30.4947 16.413 30.4947 16.413 30.4948 16.413L36.4085 18.6292L36.4092 18.6295C37.9877 19.2173 39.2355 21.0275 39.2355 22.7052V31.5111C39.2355 32.2842 38.9914 33.1746 38.5771 33.9988C38.1629 34.823 37.5936 35.5512 36.9726 36.0142L36.9725 36.0143L31.8762 39.8188L31.8762 39.8187L31.8718 39.8221C30.9596 40.5255 29.7593 40.8859 28.5333 40.8859C27.3084 40.8859 26.1052 40.5259 25.1663 39.8303C25.1661 39.8302 25.166 39.83 25.1658 39.8299L20.0705 36.0262ZM26.9275 17.418L26.9271 17.4182L21.013 19.6344L21.0125 19.6346C20.424 19.8562 19.8969 20.3272 19.5193 20.8734C19.1417 21.4198 18.8859 22.0817 18.8859 22.717V31.523C18.8859 32.159 19.1068 32.8902 19.4317 33.5386C19.7566 34.1868 20.2085 34.7981 20.7117 35.1738L20.7117 35.1738L25.8078 38.9781C26.563 39.5428 27.5578 39.8133 28.5348 39.8133C29.5119 39.8133 30.509 39.5428 31.2695 38.9789L31.2705 38.9782L36.3668 35.1738L36.3674 35.1733C36.8757 34.7921 37.3275 34.1814 37.6513 33.5338C37.9751 32.8862 38.1926 32.1583 38.1926 31.523V22.7052C38.1926 22.075 37.9363 21.4161 37.5591 20.8704C37.1819 20.3246 36.6558 19.8518 36.0694 19.6241L36.0694 19.6241L36.0655 19.6226L30.1514 17.4063L30.1514 17.4062L30.145 17.404C29.6912 17.2438 29.1023 17.1703 28.5338 17.1718C27.9659 17.1734 27.3779 17.2499 26.9275 17.418Z" fill="#FAFAFA" stroke="#FAFAFA" stroke-width="0.711111"/>
+                        <path d="M26.6938 29.238L26.9452 29.4894L27.1966 29.238L31.6647 24.7699C31.8696 24.565 32.2134 24.565 32.4182 24.7699C32.6231 24.9747 32.6231 25.3185 32.4182 25.5233L27.3219 30.6196C27.2143 30.7272 27.0811 30.7762 26.9452 30.7762C26.8092 30.7762 26.676 30.7272 26.5684 30.6196L24.6603 28.7115C24.4554 28.5066 24.4554 28.1629 24.6603 27.958C24.8651 27.7532 25.2089 27.7532 25.4138 27.958L26.6938 29.238Z" fill="#FAFAFA" stroke="#FAFAFA" stroke-width="0.711111"/>
+                    </svg>  
+                </div> 
+                <h1 class="text-center font-bold mt-2">Money Back Guarantee</h1>
+                <h3 class="text-center">We Friendly Deliver!</h3>
+            </div>
+        </div>
+        <!-- Card 3 -->
+
+    </div>
+    <!-- Row 7 end -->
+
+   
+
+
+{% endblock content %}

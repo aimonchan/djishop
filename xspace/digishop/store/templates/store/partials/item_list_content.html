@@ -1,0 +1,100 @@
+<div class="py-4 mb-1 px-0 md:px-[70px] lg:px-[96px] text-center max-w-[1024px] mx-auto mt-[76px]" id="close">
+    <div class="h-auto mb-4">
+        <div class="flex flex-col md:flex-row">
+            <div class="bg-red-400 h-[28.44px] w-[14.22px] rounded-[4px]"></div>
+            <div class="h-[28.44px] w-[20px] rounded-[4px] font-poppins text-red-400 text-[11.3px] flex items-center ml-[16px]">Today's</div>
+        </div>
+        <div class="h-auto flex justify-between">
+            <div class="flex items-center h-full">
+                <div class="flex items-center text-[25.6px] font-semibold">Flash Sales</div>
+                <span class="font-poppins flex items-center text-[22.76px] ml-[95px]">03 : 29: 31 : 56</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cards Start -->
+     <div id="container" class="h-auto flex items-center">
+         <div class="h-auto w-full overflow-hidden" id="slider-container">
+            <!-- by using w-full, I could make it responsive like others div -->
+            <div id="spareslider" class="flex flex-wrap transition-all duration-500 gap-4 max-w-[850px]">
+                {% for productPagi in productPagis%}    
+                <!-- Repeat for each card -->
+                <div class="min-w-[192px] max-w-[192px] h-[250.76px] bg-customGray shadow-lg rounded-md group relative">
+                    <img src="{{productPagi.imagefourURL}}" alt="Thumbnail" class="w-full h-auto object-cover" />
+                    <div class="bg-white w-7 h-7 rounded-xl bottom-[215px] left-[162px] absolute flex justify-center items-center">
+                        <a href="#">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.13333 5.68872C6.16995 5.68872 4.57777 7.26454 4.57777 9.20872C4.57777 10.7781 5.2 14.5029 11.3248 18.2683C11.4345 18.335 11.5605 18.3703 11.6889 18.3703C11.8173 18.3703 11.9433 18.335 12.053 18.2683C18.1778 14.5029 18.8 10.7781 18.8 9.20872C18.8 7.26454 17.2078 5.68872 15.2444 5.68872C13.2811 5.68872 11.6889 7.82205 11.6889 7.82205C11.6889 7.82205 10.0967 5.68872 8.13333 5.68872Z" stroke="black" stroke-width="1.06667" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="bg-white w-7 h-7 rounded-xl bottom-[185px] left-[162px] absolute flex justify-center items-center">
+                        <a href="{% url 'productdetail' productPagi.id %}">
+                            <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M15.9606 8.03969C16.2976 8.48058 16.2976 9.07578 15.9606 9.51596C14.8989 10.9019 12.3517 13.7556 9.37779 13.7556C6.40393 13.7556 3.85673 10.9019 2.79504 9.51596C2.63104 9.30485 2.54202 9.04515 2.54202 8.77783C2.54202 8.51051 2.63104 8.2508 2.79504 8.03969C3.85673 6.65374 6.40393 3.80005 9.37779 3.80005C12.3517 3.80005 14.8989 6.65374 15.9606 8.03969V8.03969Z" stroke="black" stroke-width="1.06667" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M9.37778 10.911C10.556 10.911 11.5111 9.95583 11.5111 8.77762C11.5111 7.59941 10.556 6.64429 9.37778 6.64429C8.19957 6.64429 7.24445 7.59941 7.24445 8.77762C7.24445 9.95583 8.19957 10.911 9.37778 10.911Z" stroke="black" stroke-width="1.06667" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>  
+                        </a>
+                    </div>
+                    <div class="hidden group-hover:flex items-center justify-center bg-black text-white font-poppins h-[29px] absolute bottom-12 left-0 right-0">
+                        <a
+                            href="#"
+                            class="text-[11.38px] update-cart" 
+                            data-product="{{ productPagi.id }}" 
+                            data-hx-post="{% url 'add_to_cart' productPagi.id %}"
+                            data-hx-target="#cart-count"
+                            data-hx-swap="innerHTML"
+                            data-hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+                            data-action="add"
+                            hx-vals='{"action": "add"}'
+                            >
+                            Add To Cart
+                            </a>
+                    </div>
+                    <div class="flex items-center justify-between bg-white w-full">
+                        <div>
+                            <h2 class="text-lg font-semibold">{{productPagi.name}}</h2>
+                            <p class="text-gray-600">${{productPagi.price|floatformat:2}}</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Repeat for other cards -->
+                {% endfor %}
+            </div>
+             
+         </div>
+         <!-- Cards end -->
+     </div>
+
+     <!-- Pagination Start -->
+     <div class="flex items-center justify-center">
+        <div href="#" class="flex font-poppins text-white p-2.5 rounded-sm">
+            <ul class="flex space-x-3 text-black">
+                {% if productPagi.has_previous %}
+                <li><a href="?page=1" hx-get="?page=1" hx-target="#item-list-container" hx-push-url="true">&laquo First</a></li>
+                <li><a href="?page={{productPagi.previous_page_number}}" hx-get="?page={{productPagi.previous_page_number}}" hx-target="#item-list-container" hx-push-url="true" class="text-white">Previous</a></li>
+                {% endif %}
+                
+                {% for i in nums %}
+                <li>
+                    <a 
+                    href="?page={{forloop.counter}}" 
+                    hx-get="?page={{forloop.counter}}" 
+                    hx-target="#item-list-container" 
+                    hx-push-url="true" 
+                    class="{% if forloop.counter == productPagis.number %} underline {% endif %}"
+                    >
+                        {{forloop.counter}}
+                    </a>
+                </li>
+                {%endfor%}
+    
+                {% if productPagi.has_next %}
+                <a href="?page={{productPagi.next_page_number}}" class="text-white">Next</a>
+                <a href="?page={{productPagi.paginator.num_pages}}">Last &raquo</a>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+    <!-- Pagination end -->
+</div>

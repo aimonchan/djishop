@@ -1,0 +1,236 @@
+{% load static tailwind_tags %}
+{% load component_tags %}
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">      
+    <script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+    <script src="https://unpkg.com/htmx.org@1.8.4"></script>
+    {% tailwind_css %}
+</head>
+<body>
+
+  <!-- Top Header start-->
+  <div class="hidden md:flex bg-black h-[48px]">
+    <div class="container max-w-[1024px] mx-auto px-[37px] md:px-[70px] lg:px-[96px] flex items-center justify-between">
+      <div class="flex items-center justify-center text-white font-poppins text-xs font-normal md:text-[10px] mx-auto">Summer Sale For All Swim Suits And Free Express Delivery - OFF 50%!
+        <div class="mx-2 flex items-center justify-center text-white underline font-poppins text-xs md:text-[10px]">ShopNow</div>
+      </div>
+      <div class="mx-2 flex items-center justify-center text-white font-poppins text-xs font-normal md:text-[10px]">Language</div>
+    </div>
+  </div>
+  <!-- Top Header end-->
+  
+  <div class="sticky top-0 z-50">
+    <!-- nav start -->
+    <nav class="border-gray-600 border-b bg-white">
+        <div class="container max-w-[1024px] mx-auto px-[37px] md:px-[70px] lg:px-[96px] flex items-end pb-4 justify-between h-[55px] md:h-[64px] lg:h-[94px]">
+
+          <!-- logo -->
+            <div class="flex justify-start text-black font-poppins text-[17.07px] font-bold items-start">
+              <a href="{% url 'home' %}">
+                DIGISHOP
+              </a>
+            </div>
+          <!-- logo -->
+      
+          <!-- Menu start-->
+            <div class="hidden lg:flex font-poppins text-xs md:text-sm font-semibold mx-auto space-x-8">
+                <a href="{% url 'home' %}" class="text-black hover:underline">Home</a>
+                <a href="{% url 'contact' %}" class="text-black hover:underline">Contact</a>
+                <a href="{% url 'ourstory' %}" class="text-black hover:underline">About</a>
+                {% if not user.is_authenticated %}
+                <a href="{% url 'signin'%}" class="text-black hover:underline">Sign In</a>
+                {% endif %}
+            </div>
+            <!-- Menu end-->
+      
+            <!-- search product form start -->
+            <div class="hidden lg:flex justify-end text-black font-poppins text-xs md:text-sm font-semibold items-center space-x-4">
+
+              <form id="search-form" method="get" action="{% url 'searched_product' %}" hx-get="{% url 'searched_product' %}" hx-target="#searched-display" hx-swap="innerHTML">
+                {% csrf_token %}
+                
+                <div class="relative">
+                  <input 
+                  type="text"
+                  id="id_searched"
+                  name="searched"
+                  value="{{ form.searched.value }}"
+                  class="border-0 rounded-md py-2 px-3 w-[173px] h-[27.02px] bg-slate-50 focus:outline-none focus:ring-2 focus:ring-blue-500 text-[8.53px] font-extralight"
+                  placeholder="What are you looking for?" 
+              />
+                    
+                    <!-- Button that triggers the form submission (HTMX will handle it) -->
+                    <button type="submit" class="absolute inset-y-0 right-0 flex items-center justify-center px-3 py-2 text-black rounded-md">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.8667 12.7777L10.1803 10.0865M11.669 6.48996C11.669 7.83993 11.1327 9.1346 10.1782 10.0892C9.22358 11.0437 7.9289 11.58 6.57893 11.58C5.22897 11.58 3.93429 11.0437 2.97972 10.0892C2.02515 9.1346 1.48888 7.83993 1.48888 6.48996C1.48888 5.13999 2.02515 3.84532 2.97972 2.89075C3.93429 1.93617 5.22897 1.3999 6.57893 1.3999C7.9289 1.3999 9.22358 1.93617 10.1782 2.89075C11.1327 3.84532 11.669 5.13999 11.669 6.48996V6.48996Z" stroke="black" stroke-width="1.06667" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </form>
+             <!-- search product form end -->
+      
+              <!-- Heart Icon -->
+              <div class="flex items-center">
+                <a href="{% url 'wishlist' %}">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M8.13333 5.68872C6.16995 5.68872 4.57777 7.26454 4.57777 9.20872C4.57777 10.7781 5.2 14.5029 11.3248 18.2683C11.4345 18.335 11.5605 18.3703 11.6889 18.3703C11.8173 18.3703 11.9433 18.335 12.053 18.2683C18.1778 14.5029 18.8 10.7781 18.8 9.20872C18.8 7.26454 17.2078 5.68872 15.2444 5.68872C13.2811 5.68872 11.6889 7.82205 11.6889 7.82205C11.6889 7.82205 10.0967 5.68872 8.13333 5.68872Z" stroke="black" stroke-width="1.06667" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </a>
+              </div>
+
+              <!-- Cart Icon start-->
+              <div id="cart-summary">
+                {% include 'store/partials/cart_icon_update.html' %}
+              </div>
+               <!-- Cart Icon end-->
+
+              
+ 
+               <!-- User login status icon start-->
+              {% component "userstatus" %}
+              {% endcomponent %}
+               <!-- User login status icon end-->
+
+
+            </div>
+      
+            <!-- hamburger icon start -->
+            {% component "hamburger" %}
+              {% endcomponent %}
+            <!-- hamburger icon end -->
+        </div>
+    </nav>
+    <!-- nav end -->
+  </div>
+
+    <div>
+        {% block content %}
+        {% endblock content %}
+    </div>
+
+    <!-- footer start -->
+    <footer class="bg-black text-white py-8 mx-auto">
+      <div class="mx-auto max-w-[1024px] px-[37px] md:px-[70px] lg:px-[96px] flex justify-between flex-wrap">
+        
+        <!-- Column 1 -->
+        <div class="md:w-[154.31px] h-[135.64px] justify-start mb-5 w-full">
+          <h3 class="mb-4 font-poppins text-[17.07px] font-bold">DIGISHOP</h3>
+          <ul>
+            <li><a href="#" class="hover:text-gray-400">Subscribe</a></li>
+            <li><a href="#" class="hover:text-gray-400 font-extralight mb-4">Get 10% off for your first order!</a></li>
+            <li>
+              <div class="flex justify-start items-start mt-4">
+                <input 
+                  type="email" 
+                  placeholder="Enter your email" 
+                  class="border border-gray-300 rounded-md py-2 px-3 w-[130px] h-[30px] lg:w-[154.31px] lg:h-[35.02px] text-center justify-center bg-black text-white focus:outline-none focus:ring-2 focus:ring-blue-500 text-[11px] lg:text-base" 
+                />
+              </div>              
+            </li>
+          </ul> 
+        </div>
+        
+        <!-- Column 2 -->
+        <div class="md:w-[125px] h-[130.82] mx-auto w-full mb-5">
+          <h3 class="font-poppins text-lg mb-4">Support</h3>
+          <ul>
+            <li><a href="#" class="hover:text-gray-400">Features</a></li>
+            <li><a href="#" class="hover:text-gray-400">Pricing</a></li>
+            <li><a href="#" class="hover:text-gray-400">Integrations</a></li>
+            <li><a href="#" class="hover:text-gray-400">FAQs</a></li>
+          </ul>
+        </div>
+    
+        <!-- Column 3 -->
+        <div class="md:w-[92px] h-[172.58px] mx-auto w-full mb-5">
+          <h3 class="font-poppins text-lg mb-4">Account</h3>
+          <ul>
+            <li><a href="#" class="hover:text-gray-400">My Account</a></li>
+            <li><a href="#" class="hover:text-gray-400">Login / Register</a></li>
+            <li><a href="#" class="hover:text-gray-400">Cart</a></li>
+            <li><a href="#" class="hover:text-gray-400">Wishlist</a></li>
+            <li><a href="#" class="hover:text-gray-400">Shop</a></li>
+          </ul>
+        </div>
+    
+        <!-- Column 4 -->
+        <div class="md:w-[92px] h-[143.2px] mx-auto w-full mb-5">
+          <h3 class="font-poppins text-lg mb-4">Quick Link</h3>
+          <ul>
+            <li><a href="#" class="hover:text-gray-400">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-gray-400">Terms of Use</a></li>
+            <li><a href="#" class="hover:text-gray-400">FAQ</a></li>
+            <li><a href="#" class="hover:text-gray-400">Contact</a></li>
+          </ul>
+        </div>
+    
+        <!-- Column 5 -->
+        <div class="md:w-[140px] h-[149.62px] mx-auto justify-end w-full mb-5">
+          <h3 class="font-poppins text-lg mb-4">Download App</h3>
+          <ul>
+            <li><a href="#" class="hover:text-gray-400">Facebook</a></li>
+            <li><a href="#" class="hover:text-gray-400">Twitter</a></li>
+            <li><a href="#" class="hover:text-gray-400">LinkedIn</a></li>
+            <li><a href="#" class="hover:text-gray-400">Instagram</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="mt-8 text-center">
+        <p class="text-sm">© 2024 Digishop. All rights reserved.</p>
+      </div>
+    </footer>
+    <!-- footer end -->
+     {% component_js_dependencies %}
+    
+<script type="text/javascript" src="{% static 'js/cart.js' %}"></script>
+<script type="text/javascript">
+  var user= '{{request.user}}'
+
+  function getToken(name) {
+      let cookieValue = null;
+      if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+          const cookie = cookies[i].trim();
+          // Does this cookie string begin with the name we want?
+          if (cookie.substring(0, name.length + 1) === (name + '=')) {
+            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+            break;
+          }
+        }
+      }
+      return cookieValue;
+    }
+    const csrftoken = getToken('csrftoken');
+
+    function getCookie(name){
+      var cookieArr = document.cookie.split(";");
+      for(var i=0; i<cookieArr.length; i++){
+        var cookiePair = cookieArr[i].split("=");
+        if(name == cookiePair[0].trim()){
+          return decodeURIComponent(cookiePair[1]);
+        }
+      }
+      return null;
+    }
+    var cart = JSON.parse(getCookie('cart'))
+    if(cart == undefined){
+      cart = {}
+      console.log('Cart Created',cart)
+      document.cookie= 'cart'+ JSON.stringify(cart)+";domain=;path=/"
+    }
+    console.log('Cart:', cart)
+
+
+</script>
+</body>
+</html>

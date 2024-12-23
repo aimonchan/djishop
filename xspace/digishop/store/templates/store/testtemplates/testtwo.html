@@ -1,0 +1,44 @@
+{% extends 'store/main.html' %}
+{% load component_tags %}
+{% load static %}
+{% block content %}
+
+
+<!-- <div id="cart-count" class="flex">
+    {% include 'store/partials/test_cart_update.html' %}
+</div> -->
+
+<!-- Row 1 start-->
+{% for product in products %}
+<div class="product">
+    <h3>{{ product.name }}</h3>
+    <p>${{ product.price }}</p>
+    
+    <!-- HTMX button to add product to cart -->
+    <button class="add-to-cart"
+            data-hx-post="{% url 'add_to_cart' product.id %}"
+            data-hx-target="#cart-count"
+            data-hx-swap="innerHTML"
+            data-hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+            data-action="add"
+            hx-vals='{"action": "add"}'
+            >
+        Add to Cart
+    </button>
+    <button class="add-to-cart"
+            data-hx-post="{% url 'add_to_cart' product.id %}"
+            data-hx-target="#cart-count"
+            data-hx-swap="innerHTML"
+            data-hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'
+            data-action="remove"
+            hx-vals='{"action": "remove"}'
+            >
+        Remove from Cart
+    </button>
+</div>
+{% endfor %}
+<!-- Row 1 End-->
+
+<!-- {% component_js_dependencies %} -->
+
+{% endblock content %}

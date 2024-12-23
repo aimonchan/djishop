@@ -1,0 +1,186 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+<div class="px-0 md:px-[70px] lg:px-[96px] xl:mx-auto max-w-[1024px]">
+
+    <div class="py-8 mx-10 md:mx-0">
+        <a class="cursor-pointer font-thin" href="#">Acount/ Game/ {{product.name}}</a>
+    </div>
+   
+
+   <div class="mx-10 md:mx-0 block md:block lg:flex justify-between mb-[60px] max-w-[1024px] items-center">
+        
+        <div class="block lg:flex lg:w-3/5 mb-4 p-4 lg:mr-3">
+            <div class="bg-red-300 lg:h-[426px] md:h-[426px] lg:flex-1 block lg:hidden min-h-[200px]">
+                <img src="{{product.imagefourURL}}" alt="Thumbnail" class="w-full h-auto object-fill" />
+            </div>
+            <div class="lg:h-[426px] lg:w-1/5 lg:space-y-2 md:flex md:justify-between flex justify-between lg:block">
+                <div class="bg-customGray w-[120px] h-[98px] m-1 lg:flex">
+                    <img src="{{product.imageoneURL}}" alt="Thumbnail" class="w-full h-auto object-cover" />
+                </div>
+                <div class="bg-customGray w-[120px] h-[98px] m-1 lg:flex">
+                    <img src="{{product.imagetwoURL}}" alt="Thumbnail" class="w-full h-auto object-cover" />
+                </div>
+                <div class="bg-customGray w-[120px] h-[98px] m-1 lg:flex lg:items-center lg:justify-center">
+                    <img src="{{product.imagethreeURL}}" alt="Thumbnail" class="w-full h-auto object-cover" />
+                </div>
+                <div class="bg-customGray w-[120px] h-[98px] m-1 lg:flex">
+                    <img src="{{product.imagefourURL}}" alt="Thumbnail" class="w-full h-auto object-cover" />
+                </div>
+            </div>
+            <div class="bg-customGray lg:h-[426px] lg:flex-1 md:hidden lg:flex hidden lg:ml-12">
+                <img src="{{product.imagefourURL}}" alt="Thumbnail" class="w-full h-auto object-cover my-auto" />
+            </div>
+        </div>
+
+        <!-- Right Form start -->
+        <div class="lg:flex-1 max-w-[284px] min-w-[284px] h-[430px] mx-auto">
+            <p class="text-xl font-poppins">{{product.name}}</p>
+            <p class="text-[9.96px] flex"><svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.412 5.36654C11.1734 4.79061 10.7661 3.57698 9.81141 3.57698H8.084C7.64744 3.57698 7.26181 3.29256 7.13286 2.87548L6.61791 1.20983C6.32875 0.274498 5.0048 0.274497 4.71564 1.20983L4.20069 2.87548C4.07174 3.29256 3.68611 3.57698 3.24955 3.57698H1.49228C0.540673 3.57698 0.131428 4.78414 0.886841 5.36284L2.39189 6.51582C2.72196 6.76868 2.86012 7.20003 2.73839 7.59759L2.19155 9.38359C1.90796 10.3098 2.97996 11.0544 3.74891 10.4654L5.06134 9.45995C5.41857 9.18628 5.91498 9.18628 6.27221 9.45994L7.57304 10.4565C8.3431 11.0464 9.41613 10.2989 9.12962 9.37213L8.57519 7.57878C8.45142 7.17846 8.59156 6.7435 8.92575 6.49072L10.412 5.36654Z" fill="#FFAD33"/>
+                </svg>
+                 (150 reviews) | <span class="text-green-500">In Stock</span> </p>
+            <p class="text-[17.7px] font-normal">$ {{product.price|floatformat:2}}</p>
+            {% if product.description is not None%}
+            <p class="text-[9.96px] text-justify font-poppins">
+                {{product.description}}
+            </p>
+            {% endif %}
+            <hr class="mt-3 w-full">
+            <p class="text-[14.22px] font-poppins">Colours: </p>
+            <p class="text-[14.22px] font-poppins flex items-center justify-between my-2">Sizes: 
+                <button class="w-[22.76px] h-[22.76px] border border-slate-500 rounded-md flex items-center justify-center">
+                    xs
+                </button>
+                <button class="w-[22.76px] h-[22.76px] border border-slate-500 rounded-md flex items-center justify-center">
+                    s
+                </button>
+                <button class="w-[22.76px] h-[22.76px] border border-slate-500 rounded-md flex items-center justify-center">
+                    m
+                </button>
+                <button class="w-[22.76px] h-[22.76px] border border-slate-500 rounded-md flex items-center justify-center">
+                    l
+                </button>
+                <button class="w-[22.76px] h-[22.76px] border border-slate-500 rounded-md flex items-center justify-center">
+                    xl
+                </button>
+            </p>
+
+            <div class="flex items-center justify-around">
+                <div class="flex border border-slate-500 rounded">
+                    <button class=" hover:bg-red-700 font-bold w-[28.44px] h-[31.29px] rounded focus:outline-none focus:shadow-outline hover:text-white">-</button>
+                      <button class="font-poppins w-[56.89px] h-[31.29px] focus:outline-none focus:shadow-outline border border-slate-500 border-l border-r border-t-0 border-b-0">
+                        00
+                      </button>
+                    <button class="hover:bg-red-700 font-bold  rounded w-[28.44px] h-[31.29px] focus:outline-none focus:shadow-outline hover:text-white">+</button>
+                </div>
+                <button class="bg-red-500 w-[117px] h-[32px] rounded-sm font-poppins text-[11px] text-white flex items-center justify-center pt-1">Buy Now</button>
+                <button class="w-[28.44px] h-[28.44px] border border-slate-500 rounded-md flex items-center justify-center">
+                    <a href="#">
+                        <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4.22255 0.866699C2.25917 0.866699 0.666992 2.44252 0.666992 4.3867C0.666992 5.95612 1.28921 9.68092 7.41401 13.4463C7.52373 13.513 7.64968 13.5483 7.7781 13.5483C7.90653 13.5483 8.03248 13.513 8.14219 13.4463C14.267 9.68092 14.8892 5.95612 14.8892 4.3867C14.8892 2.44252 13.297 0.866699 11.3337 0.866699C9.37028 0.866699 7.7781 3.00003 7.7781 3.00003C7.7781 3.00003 6.18593 0.866699 4.22255 0.866699Z" stroke="black" stroke-width="1.06667" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </button>
+            </div>
+
+            <div class="my-10 w-[275px] h-[120px] rounded-md border border-slate-500 p-1">
+                <div class="flex items-center w-full h-1/2">
+                    <div class="px-3">
+                        <svg width="30" height="29" viewBox="0 0 30 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_270_6845)">
+                            <path d="M8.94068 23.063C10.2498 23.063 11.3111 22.0018 11.3111 20.6926C11.3111 19.3835 10.2498 18.3223 8.94068 18.3223C7.63156 18.3223 6.57031 19.3835 6.57031 20.6926C6.57031 22.0018 7.63156 23.063 8.94068 23.063Z" stroke="black" stroke-width="1.42222" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M20.7922 23.063C22.1014 23.063 23.1626 22.0018 23.1626 20.6926C23.1626 19.3835 22.1014 18.3223 20.7922 18.3223C19.4831 18.3223 18.4219 19.3835 18.4219 20.6926C18.4219 22.0018 19.4831 23.063 20.7922 23.063Z" stroke="black" stroke-width="1.42222" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6.5702 20.6927H5.62206C4.83659 20.6927 4.19983 20.0559 4.19983 19.2705V15.9519M3.01465 6.47046H14.6295C15.4149 6.47046 16.0517 7.10721 16.0517 7.89268V20.6927M11.3109 20.6927H18.4221M23.1628 20.6927H24.1109C24.8964 20.6927 25.5332 20.0559 25.5332 19.2705V13.5816M25.5332 13.5816H16.0517M25.5332 13.5816L22.3919 8.34614C22.1349 7.91776 21.6719 7.65564 21.1724 7.65564H16.0517" stroke="black" stroke-width="1.42222" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6.33388 20.4556H5.38573C4.60026 20.4556 3.96351 19.8189 3.96351 19.0334V15.7149M2.77832 6.2334H14.3931C15.1786 6.2334 15.8154 6.87015 15.8154 7.65562V20.4556M11.3117 20.4556H18.1857M23.4005 20.4556H23.8746C24.6601 20.4556 25.2968 19.8189 25.2968 19.0334V13.3445M25.2968 13.3445H15.8154M25.2968 13.3445L22.1556 8.10908C21.8986 7.6807 21.4356 7.41858 20.936 7.41858H15.8154" stroke="black" stroke-width="1.42222" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4.2002 8.94849H8.94094" stroke="black" stroke-width="1.42222" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M1.9375 11.5344H6.67824" stroke="black" stroke-width="1.42222" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M4.2002 14.1201H8.94094" stroke="black" stroke-width="1.42222" stroke-linecap="round" stroke-linejoin="round"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_270_6845">
+                            <rect width="28.4444" height="28.4444" fill="white" transform="translate(0.644531 0.544434)"/>
+                            </clipPath>
+                            </defs>
+                        </svg>                            
+                    </div>
+                    <div class="pl-3">
+                        <p class="font-poppins text-[11.38px]">Free Delivery</p>
+                        <p class="font-poppins text-[8.53px]">Enter your postal code for Delivery Availability</p>
+                    </div>
+                </div>
+                <hr class="border-slate-500 w-full">
+                <div class="flex items-center w-full h-1/2">
+                    <div class="px-3">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_270_6850)">
+                            <path d="M24.3487 13.8924C24.0589 11.8067 23.0913 9.87418 21.5951 8.3925C20.0989 6.91082 18.157 5.96219 16.0686 5.69272C13.9802 5.42324 11.8611 5.84789 10.0378 6.90124C8.21452 7.95459 6.78811 9.57821 5.97833 11.522M5.38574 6.78125V11.522H10.1265" stroke="black" stroke-width="1.42222" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M5.38574 16.2629C5.67559 18.3486 6.64314 20.2811 8.13936 21.7628C9.63557 23.2445 11.5774 24.1931 13.6658 24.4626C15.7542 24.7321 17.8733 24.3074 19.6966 23.2541C21.5199 22.2007 22.9463 20.5771 23.7561 18.6333M24.3487 23.3741V18.6333H19.608" stroke="black" stroke-width="1.42222" stroke-linecap="round" stroke-linejoin="round"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_270_6850">
+                            <rect width="28.4444" height="28.4444" fill="white" transform="translate(0.644531 0.855469)"/>
+                            </clipPath>
+                            </defs>
+                        </svg>                                                       
+                    </div>
+                    <div class="pl-3">
+                        <p class="font-poppins text-[11.38px]">Return Delivery</p>
+                        <p class="font-poppins text-[8.53px]">Free 30 Days Delivery Returns</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Right Form end -->
+    </div>
+
+
+   <!-- Second Card start -->
+<div class="flex items-center justify-center mt-[60px]">
+
+    <div class="lg:space-x-5 lg:justify-between md:flex-wrap md:flex md:justify-evenly">
+       <!-- Repeat for each card -->
+        <div class="min-w-[192px]  max-w-[192px] h-[250px] bg-white shadow-lg rounded-lg overflow-hidden mb-3 mt-3">
+            <img src="{% static 'images/redshirt-gr.png'%}" alt="Thumbnail" class="w-full h-auto object-cover" />
+            <div class="p-4">
+                <h2 class="text-lg font-semibold mb-2">Card Title</h2>
+                <p class="text-gray-600">This is a description of the card. It can include details about the content or product.</p>
+            </div>
+        </div>
+        <!-- Repeat for each card -->
+
+        <!-- Repeat for each card -->
+        <div class="min-w-[192px]  max-w-[192px] h-[250px] bg-white shadow-lg rounded-lg overflow-hidden mb-3 mt-3">
+            <img src="{% static 'images/redshirt-gr.png'%}" alt="Thumbnail" class="w-full h-auto object-cover" />
+            <div class="p-4">
+                <h2 class="text-lg font-semibold mb-2">Card Title</h2>
+                <p class="text-gray-600">This is a description of the card. It can include details about the content or product.</p>
+            </div>
+        </div>
+        <!-- Repeat for each card -->
+
+        <!-- Repeat for each card -->
+        <div class="min-w-[192px]  max-w-[192px] h-[250px] bg-white shadow-lg rounded-lg overflow-hidden mb-3 mt-3">
+            <img src="{% static 'images/redshirt-gr.png'%}" alt="Thumbnail" class="w-full h-auto object-cover" />
+            <div class="p-4">
+                <h2 class="text-lg font-semibold mb-2">Card Title</h2>
+                <p class="text-gray-600">This is a description of the card. It can include details about the content or product.</p>
+            </div>
+        </div>
+        <!-- Repeat for each card -->
+
+        <!-- Repeat for each card -->
+        <div class="min-w-[192px]  max-w-[192px] h-[250px] bg-white shadow-lg rounded-lg overflow-hidden mb-3 mt-3">
+            <img src="{% static 'images/redshirt-gr.png'%}" alt="Thumbnail" class="w-full h-auto object-cover" />
+            <div class="p-4">
+                <h2 class="text-lg font-semibold mb-2">Card Title</h2>
+                <p class="text-gray-600">This is a description of the card. It can include details about the content or product.</p>
+            </div>
+        </div>
+        <!-- Repeat for each card -->
+    </div>
+</div>
+<!-- Second Card end -->
+
+</div>
+{% endblock content %}

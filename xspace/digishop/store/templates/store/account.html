@@ -1,0 +1,80 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+<div class="px-0 md:px-[70px] lg:px-[96px] xl:mx-auto max-w-[1024px]">  
+   
+   
+   <div class="flex justify-between mt-8 mx-10 md:mx-0">
+        <div class="flex-1">
+            <a class="cursor-pointer font-thin" href="#">Home/ My Account</a>
+        </div>
+        <div class="flex-1 flex justify-end">
+            <a class="cursor-pointer font-thin" href="#">Welcome User!</a>
+        </div>
+   </div>
+
+   <div class="block lg:flex justify-between mt-[50px] mb-[60px]">
+        <div class="lg:w-1/4 md:pr-[2] mx-10 md:mx-0 hidden lg:block">
+            <div class="mb-2">
+                <div>Manage My Account</div>
+                <ul class="pl-7">
+                    <li>My Profile</li>
+                    <li>Address Book</li>
+                    <li>My Payment Options</li>
+                </ul>
+            </div>
+            <div class="mb-2">
+                <div>My Orders</div>
+                <ul class="pl-7">
+                    <li>My Returnsli</li>
+                    <li>My Cancellations</li>
+                </ul>
+            </div>
+            <div>
+                <div>My Wishlist</div>
+            </div>
+        </div>
+
+        <!-- Form start -->
+        <div class="flex-1 px-2">
+            <h1>Edit Your Profile</h1>
+            <form">
+                <div class="flex justify-between space-x-6">
+                    <div class="flex-1">
+                        <label>First Name</label></br>
+                        <input type="text" class="w-full">
+                    </div>
+                    <div class="flex-1">
+                        <label>Last Name</label></br>
+                        <input type="text" class="w-full">
+                    </div>
+                </div>
+                <div class="flex justify-between space-x-6">
+                    <div class="flex-1">
+                        <label>Email</label></br>
+                        <input type="text" class="w-full">
+                    </div>
+                    <div class="flex-1">
+                        <label>Address</label></br>
+                        <input type="text" class="w-full">
+                    </div>
+                </div>
+                <div class="flex justify-between space-x-6">
+                    <div class="flex-1">
+                        <label>Password Changes</label></br>
+                        <input type="text" class="w-full my-2">
+                        <input type="text" class="w-full my-2">
+                        <input type="text" class="w-full my-2">
+                    </div>
+                </div>
+                <div class="flex justify-end mt-2">
+                    <button class="p-2">Cancel</button>
+                    <button class="bg-red-400 p-2">Save Changes</button>
+                </div>
+            </form>
+        </div>
+        <!-- Form end -->
+    </div>
+
+</div>
+{% endblock content %}

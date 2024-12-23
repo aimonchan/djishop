@@ -1,0 +1,14 @@
+<div class="flex items-center" id="cart-count">
+    <a href="{% url 'cart' %}">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M8.26667 19.911C8.6594 19.911 8.97778 19.5926 8.97778 19.1999C8.97778 18.8071 8.6594 18.4888 8.26667 18.4888C7.87393 18.4888 7.55556 18.8071 7.55556 19.1999C7.55556 19.5926 7.87393 19.911 8.26667 19.911Z" stroke="black" stroke-width="1.06667" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M18.2222 19.911C18.615 19.911 18.9333 19.5926 18.9333 19.1999C18.9333 18.8071 18.615 18.4888 18.2222 18.4888C17.8295 18.4888 17.5111 18.8071 17.5111 19.1999C17.5111 19.5926 17.8295 19.911 18.2222 19.911Z" stroke="black" stroke-width="1.06667" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M2.57777 4.2666H5.42222L7.55555 16.3555H18.9333" stroke="black" stroke-width="1.06667" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M7.55555 12.5628H18.6418C18.724 12.5628 18.8037 12.5344 18.8673 12.4823C18.9309 12.4302 18.9745 12.3576 18.9907 12.277L20.2707 5.87699C20.281 5.82539 20.2797 5.77213 20.267 5.72107C20.2542 5.67001 20.2303 5.62241 20.1969 5.58172C20.1635 5.54103 20.1216 5.50825 20.074 5.48576C20.0264 5.46327 19.9744 5.45162 19.9218 5.45166H6.13333" stroke="black" stroke-width="1.06667" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>        
+    </a>
+
+    {% if cartItems %}
+    <div class="bg-red-400 text-white w-5 h-5 flex items-center justify-center rounded-[20px] p-3 text-center text-[10px] absolute ml-5 mb-5">{{cartItems}}</div>
+    {% endif %}
+</div>

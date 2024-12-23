@@ -1,0 +1,78 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+<div class="pt-8 pb-16 mx-0 xl:mx-auto lg:h-[500px] flex max-w-[1024px] lg:w-[928.83px]">
+
+    <!-- Image Start -->
+   <div class="bg-green-300  w-3/5 hidden lg:block" style="background-image: url({% static 'images/signwp.png' %});background-size: cover;background-position: center;">
+   </div>
+   <!-- Image end -->
+
+   <!-- Form Start -->
+   <div class="flex-1 flex items-center justify-center lg:justify-end w-2/5">
+      <div class="text-center w-[264.76px]">
+         <p class="text-xl text-start font-poppins">Create an account</p>
+         <p class="text-md text-start font-poppins text-sm">Enter Your Details Below</p>
+        <form method="POST" action="">
+         {% csrf_token %}
+             <input 
+             type="text" 
+             placeholder="Your Name"
+             class="w-full rounded-none text-gray-400 my-2 border-b border-gray-300 border-t-0 border-l-0 border-r-0"
+             name="username"
+             value="{{ form.username.value|default_if_none:'' }}"
+             >
+            {% if form.username.errors %}
+                <div class="text-red-500 text-sm">{{ form.username.errors }}</div>
+            {% endif %}
+
+             <input 
+             type="text" 
+             placeholder="Email or Phone Number" 
+             class="w-full rounded-none text-gray-400 my-2 border-b border-gray-300 border-t-0 border-l-0 border-r-0"
+             name="email"
+             value="{{ form.email.value|default_if_none:'' }}"
+             >
+             {% if form.email.errors %}
+                <div class="text-red-500 text-sm">{{ form.email.errors }}</div>
+            {% endif %}
+
+             <input 
+             type="password" 
+             placeholder="Password" 
+             class="w-full rounded-none text-gray-400 my-2 border-b border-gray-300 border-t-0 border-l-0 border-r-0"
+             name="password1"
+             >
+            {% if form.password1.errors %}
+                <div class="text-red-500 text-sm">{{ form.password1.errors }}</div>
+            {% endif %}
+
+             <input 
+             type="password" 
+             placeholder="Confirm Your Password" 
+             class="w-full rounded-none text-gray-400 my-2 border-b border-gray-300 border-t-0 border-l-0 border-r-0 mb-5"
+             name="password2"
+             >
+            {% if form.password2.errors %}
+                <div class="text-red-500 text-sm">{{ form.password2.errors }}</div>
+            {% endif %}
+             
+             <input 
+             type="submit"
+             name="Create User" 
+             value="Create Account" 
+             class="bg-red-400 text-white p-2 rounded-[2.84px] w-full cursor-pointer"
+             >
+            </br>
+         </form>
+        
+        
+         <button class="bg-white p-2 w-full rounded-md my-2 border border-gray-300">Sign Up with Google</button>
+         <h1 class="text-gray-500 mt-3">Already Have Account? 
+            <a href="{% url 'signin' %}">Log in</a>
+        </h1>
+      </div>
+   </div>
+   <!-- Form end -->
+</div>
+{% endblock content %}

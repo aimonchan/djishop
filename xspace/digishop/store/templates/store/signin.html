@@ -1,0 +1,38 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+<div class="pt-8 pb-16 mx-0 xl:mx-auto lg:h-[500px] flex max-w-[1024px] lg:w-[928.83px]">
+
+    <!-- Image Start -->
+   <div class="bg-green-300  w-3/5 hidden lg:block" style="background-image: url({% static 'images/signwp.png' %});background-size: cover;background-position: center;">
+   </div>
+   <!-- Image end -->
+
+   <!-- Form Start -->
+   <div class="flex-1 flex items-center justify-center lg:justify-end w-2/5">
+      <div class="text-center w-[264.76px]">
+         <p class="text-xl text-start font-poppins">Log in to Exclusive</p>
+         <p class="text-md text-start font-poppins text-sm">Enter Your Details Below</p>
+        <form method="POST" action="">
+         {% csrf_token %}
+             <input type="text" placeholder="Email or Phone Number" class="w-full rounded-none text-gray-400 my-2 border-b border-gray-300 border-t-0 border-l-0 border-r-0"
+             name="username"
+             >
+
+             <input type="password" placeholder="Password" class="w-full rounded-none text-gray-400 my-2 border-b border-gray-300 border-t-0 border-l-0 border-r-0 mb-5"
+             name="password"             
+             >
+
+             
+             <div class="flex items-center justify-between space-x-2">
+                <input type="submit" value="Log in" class="bg-red-400 text-white p-2 rounded-[2.84px] w-[120px] h-[40px] cursor-pointer">
+                 <a class="bg-white p-2 border-0 text-sm text-gray-400 hover:text-black cursor-pointer">Forget Password?</a>
+             </div>
+         </form>
+         <div class="mt-5">New to our site? <span><a href="{% url 'signup'%}" class="text-gray-500 hover:text-black">Create an account!</a></span>
+            </div>
+      </div>
+   </div>
+   <!-- Form end -->
+</div>
+{% endblock content %}

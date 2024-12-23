@@ -1,0 +1,29 @@
+<div class="flex items-center justify-center">
+    <div href="#" class="flex font-poppins text-white p-2.5 rounded-sm">
+        <ul class="flex space-x-3 text-black">
+            {% if productPagi.has_previous %}
+            <li><a href="?page=1" hx-get="?page=1" hx-target="#item-list-container" hx-push-url="true">&laquo First</a></li>
+            <li><a href="?page={{productPagi.previous_page_number}}" hx-get="?page={{productPagi.previous_page_number}}" hx-target="#item-list-container" hx-push-url="true" class="text-white">Previous</a></li>
+            {% endif %}
+            
+            {% for i in nums %}
+            <li>
+                <a 
+                href="?page={{forloop.counter}}" 
+                hx-get="?page={{forloop.counter}}" 
+                hx-target="#item-list-container" 
+                hx-push-url="true" 
+                class="{% if forloop.counter == productPagis.number %} underline {% endif %}"
+                >
+                    {{forloop.counter}}
+                </a>
+            </li>
+            {%endfor%}
+
+            {% if productPagi.has_next %}
+            <a href="?page={{productPagi.next_page_number}}" class="text-white">Next</a>
+            <a href="?page={{productPagi.paginator.num_pages}}">Last &raquo</a>
+            {% endif %}
+        </ul>
+    </div>
+</div>

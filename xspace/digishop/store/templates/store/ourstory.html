@@ -1,0 +1,140 @@
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}
+<div class="px-0 md:px-[70px] lg:px-[96px] xl:mx-auto max-w-[1024px]">
+
+    <div class="py-8 mx-10 md:mx-0">
+        <a class="cursor-pointer font-thin" href="#">Home/ Story</a>
+    </div>
+   
+
+   <div class="mx-10 md:mx-0 block md:flex justify-between mb-[60px]">
+        <div class="flex-1 flex items-center">
+            <div>
+                <p class="text-[30px] font-semibold">Our Story</p>
+                <p class="text-md font-semibold text-justify">
+                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+                </p>
+            </div>
+        </div>
+
+        <!-- Right Pic start -->
+        <div class="flex-1 flex items-center justify-center">
+            <img src="{% static 'images/bag-gr.png' %}">
+        </div>
+        <!-- Right Pic end -->
+    </div>
+
+    <!-- Card start -->
+    <div class="flex items-center justify-center">
+
+        <div class="lg:space-x-5 lg:justify-between md:flex-wrap md:flex md:justify-evenly">
+            <!-- Icon one -->
+            <div class="min-w-[192px] max-w-[192px] h-[163px] bg-slate-200 flex items-center justify-center mb-4">
+                <div>
+                    <div>Icon</div>
+                    <div>Label</div>
+                </div>
+            </div>
+            <!-- Icon one -->
+            <!-- Icon one -->
+            <div class="min-w-[192px] max-w-[192px] h-[163px] bg-slate-200 flex items-center justify-center mb-4">
+                <div>
+                    <div>Icon</div>
+                    <div>Label</div>
+                </div>
+            </div>
+            <!-- Icon one -->
+            <!-- Icon one -->
+            <div class="min-w-[192px] max-w-[192px] h-[163px] bg-slate-200 flex items-center justify-center mb-4">
+                <div>
+                    <div>Icon</div>
+                    <div>Label</div>
+                </div>
+            </div>
+            <!-- Icon one -->
+            <!-- Icon one -->
+            <div class="min-w-[192px] max-w-[192px] h-[163px] bg-slate-200 flex items-center justify-center mb-4">
+                <div>
+                    <div>Icon</div>
+                    <div>Label</div>
+                </div>
+            </div>
+            <!-- Icon one -->
+        </div>
+    </div>
+    <!-- Card end -->
+
+    <!-- Second Card start -->
+    <div class="flex items-center justify-center mt-[60px]">
+
+        <div class="lg:space-x-5 lg:justify-between md:flex-wrap md:flex md:justify-evenly">
+           <!-- Repeat for each card -->
+           <div class="min-w-[263px]  max-w-[263px] h-[402px] bg-white shadow-lg rounded-lg overflow-hidden mb-3 mt-3">
+            <img src="{% static 'images/redshirt-gr.png'%}" alt="Thumbnail" class="w-full h-auto object-cover" />
+            <div class="p-4">
+                <h2 class="text-lg font-semibold mb-2">Card Title</h2>
+                <p class="text-gray-600">This is a description of the card. It can include details about the content or product.</p>
+            </div>
+        </div>
+        <!-- Repeat for other cards -->
+           <!-- Repeat for each card -->
+           <div class="min-w-[263px]  max-w-[263px] h-[402px] bg-white shadow-lg rounded-lg overflow-hidden mb-3 mt-3">
+            <img src="{% static 'images/redshirt-gr.png'%}" alt="Thumbnail" class="w-full h-auto object-cover" />
+            <div class="p-4">
+                <h2 class="text-lg font-semibold mb-2">Card Title</h2>
+                <p class="text-gray-600">This is a description of the card. It can include details about the content or product.</p>
+            </div>
+        </div>
+        <!-- Repeat for other cards -->
+           <!-- Repeat for each card -->
+           <div class="min-w-[263px]  max-w-[263px] h-[402px] bg-white shadow-lg rounded-lg overflow-hidden mb-3 mt-3">
+            <img src="{% static 'images/redshirt-gr.png'%}" alt="Thumbnail" class="w-full h-auto object-cover" />
+            <div class="p-4">
+                <h2 class="text-lg font-semibold mb-2">Card Title</h2>
+                <p class="text-gray-600">This is a description of the card. It can include details about the content or product.</p>
+            </div>
+        </div>
+        <!-- Repeat for other cards -->
+        </div>
+    </div>
+    <!-- Second Card end -->
+
+    <!-- Row 7 start -->
+    <div class="py-4 px-0 md:px-[70px] lg:px-[96px] max-w-[1024px] mx-auto">
+        <div class="w-full block md:flex md:items-center md:justify-between">
+ 
+         <!-- Card 1 -->
+         <div class="w-[177px] h-[114px] bg-blue-300 flex items-center justify-center mx-auto md:mx-0 mb-2">
+             <div>
+                 <div class="bg-black w-[56.89px] h-[56.89px] rounded-[56.89px] mx-auto"></div> 
+                 <h1 class="text-center font-bold">Hello</h1>
+                 <h3 class="text-center">We Friendly Deliver!</h3>
+             </div>
+         </div>
+         <!-- Card 1 -->
+         <!-- Card 2 -->
+         <div class="w-[177px] h-[114px] bg-blue-300 flex items-center justify-center mx-auto md:mx-0 mb-2">
+             <div>
+                 <div class="bg-black w-[56.89px] h-[56.89px] rounded-[56.89px] mx-auto"></div> 
+                 <h1 class="text-center font-bold">Hello</h1>
+                 <h3 class="text-center">We Friendly Deliver!</h3>
+             </div>
+         </div>
+         <!-- Card 2 -->
+         <!-- Card 3 -->
+         <div class="w-[177px] h-[114px] bg-blue-300 flex items-center justify-center mx-auto md:mx-0 mb-2">
+             <div>
+                 <div class="bg-black w-[56.89px] h-[56.89px] rounded-[56.89px] mx-auto"></div> 
+                 <h1 class="text-center font-bold">Hello</h1>
+                 <h3 class="text-center">We Friendly Deliver!</h3>
+             </div>
+         </div>
+         <!-- Card 3 -->
+ 
+     </div>
+     <!-- Row 7 end -->
+
+</div>
+{% endblock content %}
